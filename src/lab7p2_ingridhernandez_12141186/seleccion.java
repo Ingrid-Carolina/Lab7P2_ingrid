@@ -19,6 +19,7 @@ public class seleccion {
     private int favor=0;
     private int contra=0;
     private int diferencia=0;
+    
     private ArrayList<Jugador> j = new ArrayList();
 
     public seleccion() {
@@ -118,5 +119,8 @@ public class seleccion {
     public String toString() {
         return "seleccion{" + "nombre=" + nombre + ", jugados=" + jugados + ", ganados=" + ganados + ", empatados=" + empatados + ", perdidos=" + perdidos + ", favor=" + favor + ", contra=" + contra + ", diferencia=" + diferencia + ", j=" + j + '}';
     }
-    
+    public int puntos(seleccion s){
+        int punto = s.ganados*3 + s.empatados;
+        return punto;
+    }
 }

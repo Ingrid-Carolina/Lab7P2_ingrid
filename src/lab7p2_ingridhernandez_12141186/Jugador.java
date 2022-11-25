@@ -20,10 +20,11 @@ public class Jugador {
     private int faltas_recibidad;
     private String posicion;
     private int porteria_imbatibles;
+    private String selecion;
     public Jugador() {
     }
 
-    public Jugador(String nombre, int dorsal, int goles, int asistencia, int partidos, int tarjeta_amarilla, int tarjeta_rojas, int faltas_Cometidas, int faltas_recibidad, String posicion) {
+    public Jugador(String nombre, int dorsal, int goles, int asistencia, int partidos, int tarjeta_amarilla, int tarjeta_rojas, int faltas_Cometidas, int faltas_recibidad, String posicion,String selecion) {
         this.nombre = nombre;
         this.dorsal = dorsal;
         this.goles = goles;
@@ -34,9 +35,10 @@ public class Jugador {
         this.faltas_Cometidas = faltas_Cometidas;
         this.faltas_recibidad = faltas_recibidad;
         this.posicion = posicion;
+        this.selecion = selecion;
     }
 
-    public Jugador(String nombre, int dorsal, int goles, int asistencia, int partidos, int tarjeta_amarilla, int tarjeta_rojas, int faltas_Cometidas, int faltas_recibidad, String posicion, int porteria_imbatibles) {
+    public Jugador(String nombre, int dorsal, int goles, int asistencia, int partidos, int tarjeta_amarilla, int tarjeta_rojas, int faltas_Cometidas, int faltas_recibidad, String posicion, int porteria_imbatibles,String selecion) {
         this.nombre = nombre;
         this.dorsal = dorsal;
         this.goles = goles;
@@ -48,6 +50,7 @@ public class Jugador {
         this.faltas_recibidad = faltas_recibidad;
         this.posicion = posicion;
         this.porteria_imbatibles = porteria_imbatibles;
+        this.selecion = selecion;
     }
 
     public String getNombre() {
@@ -133,6 +136,22 @@ public class Jugador {
 
     public void setPosicion(String posicion) {
         this.posicion = posicion;
+    }
+
+    public int getPorteria_imbatibles() {
+        return porteria_imbatibles;
+    }
+
+    public void setPorteria_imbatibles(int porteria_imbatibles) {
+        this.porteria_imbatibles = porteria_imbatibles;
+    }
+
+    public String getSelecion() {
+        return selecion;
+    }
+
+    public void setSelecion(String selecion) {
+        this.selecion = selecion;
     }
 
     @Override
