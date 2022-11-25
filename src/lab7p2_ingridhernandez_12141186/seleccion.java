@@ -108,7 +108,10 @@ public class seleccion {
     }
 
     public void setJ(ArrayList<Jugador> j) {
-        this.j = j;
+        if(j.size()> 0 && j.size()<26){
+        this.j = j;    
+        }
+        
     }
 
     @Override

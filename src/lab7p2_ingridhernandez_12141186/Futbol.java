@@ -11,7 +11,8 @@ import javax.swing.DefaultComboBoxModel;
  * @author ADMINISTRADOR1
  */
 public class Futbol extends javax.swing.JFrame {
-private DefaultComboBoxModel listaJugadores = new DefaultComboBoxModel();
+    private DefaultComboBoxModel listausuario = new DefaultComboBoxModel();
+
     /**
      * Creates new form Futbol
      */

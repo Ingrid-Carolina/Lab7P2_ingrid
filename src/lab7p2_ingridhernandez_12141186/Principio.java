@@ -4,8 +4,10 @@
  */
 package lab7p2_ingridhernandez_12141186;
 
+import java.awt.HeadlessException;
 import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -50,6 +52,11 @@ public class Principio extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
 
         jIngresar.setText("Ingresar");
+        jIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jIngresarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,6 +101,32 @@ public class Principio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIngresarMouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel lista = a.getListaJugadores();
+        Random rnd = new Random();
+        String nombre = jUserInput.getText();
+        String password = jPasswordInput.getText();
+        try {
+            if (((Usuario)lista.getElementAt(0)).getNombreUsuario().equalsIgnoreCase(nombre) &&((Usuario)lista.getElementAt(0)).getPassword().equalsIgnoreCase(password) ||
+                  ((Usuario)lista.getElementAt(1)).getNombreUsuario().equalsIgnoreCase(nombre) &&((Usuario)lista.getElementAt(1)).getPassword().equalsIgnoreCase(password)||
+                    ((Usuario)lista.getElementAt(2)).getNombreUsuario().equalsIgnoreCase(nombre) &&((Usuario)lista.getElementAt(2)).getPassword().equalsIgnoreCase(password) ) {
+                JOptionPane.showConfirmDialog(this, "Bienvenido");
+                a.setVisible(true);
+                setVisible(false);
+            } else {
+                lista.addElement(new Usuario(nombre, idGenerator(), password,a.darPersonaje()));
+                JOptionPane.showConfirmDialog(this, "Bienvenido nuevo usuario");
+                a.setVisible(true);
+                setVisible(false);
+            }
+
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+        }
+    }//GEN-LAST:event_jIngresarMouseClicked
 
     /**
      * @param args the command line arguments
