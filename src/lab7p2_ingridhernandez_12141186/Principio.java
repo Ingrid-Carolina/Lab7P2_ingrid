@@ -5,6 +5,8 @@
 package lab7p2_ingridhernandez_12141186;
 
 import java.awt.HeadlessException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -14,12 +16,18 @@ import javax.swing.JOptionPane;
  * @author ADMINISTRADOR1
  */
 public class Principio extends javax.swing.JFrame {
- static Futbol a = new Futbol();
+ Futbol a = new Futbol();
+  admin ad = new admin();
     /**
      * Creates new form Principio
      */
     public Principio() {
+        
+        a.listausuario.add(new Usuario ("fer",342,"sdfg"));
+        a.listausuario.add(new Usuario ("nuila",34536,"werty"));
+        a.listausuario.add(new Usuario ("admin",12345,"poy"));
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -36,8 +44,8 @@ public class Principio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jUserInput = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordInput = new javax.swing.JPasswordField();
         jIngresar = new javax.swing.JButton();
+        jPasswordInput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,21 +71,22 @@ public class Principio extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(jUserInput)
-                            .addComponent(jLabel3)
-                            .addComponent(jPasswordInput, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jIngresar)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(126, 126, 126)
+                            .addComponent(jLabel1))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(51, 51, 51)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jUserInput, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(101, 101, 101)
+                            .addComponent(jIngresar))))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,9 +99,9 @@ public class Principio extends javax.swing.JFrame {
                 .addComponent(jUserInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(38, 38, 38)
                 .addComponent(jIngresar)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
@@ -104,21 +113,35 @@ public class Principio extends javax.swing.JFrame {
 
     private void jIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jIngresarMouseClicked
         // TODO add your handling code here:
-        DefaultComboBoxModel lista = a.getListaJugadores();
+        ArrayList<Usuario> lista = a.listausuario;
         Random rnd = new Random();
         String nombre = jUserInput.getText();
         String password = jPasswordInput.getText();
         try {
-            if (((Usuario)lista.getElementAt(0)).getNombreUsuario().equalsIgnoreCase(nombre) &&((Usuario)lista.getElementAt(0)).getPassword().equalsIgnoreCase(password) ||
-                  ((Usuario)lista.getElementAt(1)).getNombreUsuario().equalsIgnoreCase(nombre) &&((Usuario)lista.getElementAt(1)).getPassword().equalsIgnoreCase(password)||
-                    ((Usuario)lista.getElementAt(2)).getNombreUsuario().equalsIgnoreCase(nombre) &&((Usuario)lista.getElementAt(2)).getPassword().equalsIgnoreCase(password) ) {
+            if (((Usuario)lista.get(0)).getNombreUsuario().equalsIgnoreCase(nombre) &&((Usuario)lista.get(0)).getPassword().equalsIgnoreCase(password) ||
+                  ((Usuario)lista.get(1)).getNombreUsuario().equalsIgnoreCase(nombre) &&((Usuario)lista.get(1)).getPassword().equalsIgnoreCase(password)||
+                    ((Usuario)lista.get(2)).getNombreUsuario().equalsIgnoreCase(nombre) &&((Usuario)lista.get(2)).getPassword().equalsIgnoreCase(password) ) {
                 JOptionPane.showConfirmDialog(this, "Bienvenido");
                 a.setVisible(true);
                 setVisible(false);
             } else {
-                lista.addElement(new Usuario(nombre, idGenerator(), password,a.darPersonaje()));
+                lista.add(new Usuario(nombre, idGenerator(), password));
                 JOptionPane.showConfirmDialog(this, "Bienvenido nuevo usuario");
                 a.setVisible(true);
+                setVisible(false);
+            }
+            if (((Usuario)lista.get(0)).getNombreUsuario().equalsIgnoreCase("admin") &&((Usuario)lista.get(0)).getPassword().equalsIgnoreCase(password) ||
+                  ((Usuario)lista.get(1)).getNombreUsuario().equalsIgnoreCase("admin") &&((Usuario)lista.get(1)).getPassword().equalsIgnoreCase(password)||
+                    ((Usuario)lista.get(2)).getNombreUsuario().equalsIgnoreCase("admin") &&((Usuario)lista.get(2)).getPassword().equalsIgnoreCase(password) ) {
+                JOptionPane.showConfirmDialog(this, "Bienvenido Admin");
+                 ad.setVisible(true);
+                 a.setVisible(false);
+                setVisible(false);
+            }else {
+                lista.add(new Usuario(nombre, idGenerator(), password));
+                JOptionPane.showConfirmDialog(this, "Bienvenido nuevo admin");
+                ad.setVisible(true);
+                a.setVisible(false);
                 setVisible(false);
             }
 
@@ -162,18 +185,18 @@ public class Principio extends javax.swing.JFrame {
             }
         });
     }
-      public static int idGenerator() {
+      public int idGenerator() {
         Random rnd = new Random();
         int id = rnd.nextInt(1000);
         boolean centinela = false;
         while (centinela == true) {
             int cont = 0;
-            DefaultComboBoxModel lista = a.getListaJugadores();
-            for (int i = 0; i < lista.getSize(); i++) {
-                if (lista.getElementAt(i) instanceof Usuario jugadores) {
-                    if (jugadores.getID() == id) {
+            ArrayList<Usuario> lista = a.listausuario;
+            for (int i = 0; i < lista.size(); i++) {
+               // if (lista.get(i) instanceof Usuario vario) {                 
+                    if (lista.get(i).getID() == id) {
                         cont++;
-                    }
+                    //}
                 }
             }
             if (cont > 0) {
@@ -192,7 +215,7 @@ public class Principio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordInput;
+    private javax.swing.JTextField jPasswordInput;
     private javax.swing.JTextField jUserInput;
     // End of variables declaration//GEN-END:variables
 }

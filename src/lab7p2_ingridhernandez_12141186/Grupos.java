@@ -9,5 +9,18 @@ package lab7p2_ingridhernandez_12141186;
  * @author ADMINISTRADOR1
  */
 public class Grupos {
+    private seleccion [] lista = new seleccion[4];
+
+    public Grupos() {
+    }
+
+    public seleccion[] getLista() {
+        return lista;
+    }
+
+    public void setLista(seleccion[] lista) {
+        this.lista = lista;
+    }
+    
     
 }

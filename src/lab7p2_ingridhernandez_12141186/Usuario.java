@@ -17,6 +17,12 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Usuario(String nombreUsuario, int ID, String password) {
+        this.nombreUsuario = nombreUsuario;
+        this.ID = ID;
+        this.password = password;
+    }
+
     public Usuario(String nombreUsuario, int ID, String password, String tipo) {
         this.nombreUsuario = nombreUsuario;
         this.ID = ID;
@@ -24,11 +30,7 @@ public class Usuario {
         this.tipo = tipo;
     }
 
-    public Usuario(String nombreUsuario, int ID, String password) {
-        this.nombreUsuario = nombreUsuario;
-        this.ID = ID;
-        this.password = password;
-    }
+    
 
     public String getNombreUsuario() {
         return nombreUsuario;
