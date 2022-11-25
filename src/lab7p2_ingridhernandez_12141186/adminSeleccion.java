@@ -64,6 +64,7 @@ public class adminSeleccion {
                 bw.write(s.getContra( )+ "|");
                 bw.write(s.getDiferencia() + "|");
                 bw.write(s.puntos(s)+ "|");
+               
                 for (Jugador j : s.getJ()) {
                     bw.write(j.getNombre()+":");
                 }
@@ -82,10 +83,22 @@ public class adminSeleccion {
         if (archivo.exists()) {
             try {
                 lea = new Scanner(archivo);
-                lea.useDelimiter("|");
+                lea.useDelimiter("(;|\\||\\[|\\]|,)");
                 while (lea.hasNext()) {
                    sel.add(new seleccion(lea.next(),lea.nextInt(),lea.nextInt(), lea.nextInt(),lea.nextInt(),lea.nextInt(),lea.nextInt(),lea.nextInt()));
+                if(!lea.hasNext("") && !lea.hasNext("")){
+                    System.out.println("Hay doble vacio");
+                    
+                while (!lea.hasNext("")) {
+                            int indexPersonas =sel.size() - 1;
+                            sel.get(indexPersonas).getJ().add(new Jugador(lea.next()));
+                        }
+                    } else {
+                        lea.next();
+                        
+                    }
                 }
+                
             } catch (Exception e) {
             }
             lea.close();
