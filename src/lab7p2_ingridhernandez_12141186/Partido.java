@@ -11,21 +11,21 @@ import java.util.ArrayList;
  * @author ADMINISTRADOR1
  */
 public class Partido {
-    private seleccion local;
-    private seleccion vistantes;
+    private String local;
+    private String vistantes;
     private int goles;
     private int posicion;
     private int tiros_Total;
     private int tiros_meta;
     private int faltas;
     ArrayList<Jugador> j_Faltas = new ArrayList();
-     ArrayList<Jugador> j_tarjetas = new ArrayList();
-             ArrayList<Jugador> j_gol = new ArrayList();
+    ArrayList<Jugador> j_tarjetas = new ArrayList();
+    ArrayList<Jugador> j_gol = new ArrayList();
 
     public Partido() {
     }
 
-    public Partido(seleccion local, seleccion vistantes, int goles, int posicion, int tiros_Total, int tiros_meta, int faltas) {
+    public Partido(String local, String vistantes, int goles, int posicion, int tiros_Total, int tiros_meta, int faltas) {
         this.local = local;
         this.vistantes = vistantes;
         this.goles = goles;
@@ -35,21 +35,23 @@ public class Partido {
         this.faltas = faltas;
     }
 
-    public seleccion getLocal() {
+    public String getLocal() {
         return local;
     }
 
-    public void setLocal(seleccion local) {
+    public void setLocal(String local) {
         this.local = local;
     }
 
-    public seleccion getVistantes() {
+    public String getVistantes() {
         return vistantes;
     }
 
-    public void setVistantes(seleccion vistantes) {
+    public void setVistantes(String vistantes) {
         this.vistantes = vistantes;
     }
+
+  
 
     public int getGoles() {
         return goles;

@@ -27,6 +27,7 @@ public class Jugador {
     public Jugador(String nombre) {
         this.nombre = nombre;
     }
+    
 
     public Jugador(String nombre, int dorsal, int goles, int asistencia, int partidos, int tarjeta_amarilla, int tarjeta_rojas, int faltas_Cometidas, int faltas_recibidad, String posicion,String selecion) {
         this.nombre = nombre;
