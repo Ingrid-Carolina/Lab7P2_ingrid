@@ -129,6 +129,11 @@ public class Jugador {
     public void setPosicion(String posicion) {
         this.posicion = posicion;
     }
+
+    @Override
+    public String toString() {
+        return "Jugador{" + "nombre=" + nombre + ", dorsal=" + dorsal + ", goles=" + goles + ", asistencia=" + asistencia + ", partidos=" + partidos + ", tarjeta_amarilla=" + tarjeta_amarilla + ", tarjeta_rojas=" + tarjeta_rojas + ", faltas_Cometidas=" + faltas_Cometidas + ", faltas_recibidad=" + faltas_recibidad + ", posicion=" + posicion + ", porteria_imbatibles=" + porteria_imbatibles + '}';
+    }
     
             
 }
