@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author ADMINISTRADOR1
  */
 public class admin extends javax.swing.JFrame {
-
+ArrayList<Usuario> listausuario = new ArrayList();
     /**
      * Creates new form admin
      */
@@ -112,6 +112,11 @@ public class admin extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setText("Agregar al Sistema");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -407,6 +412,13 @@ public class admin extends javax.swing.JFrame {
                     "Ocurrio un error y no se guardaron los datos");
         }
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+//        adminPartido ap=new adminPartido("./mis_Partido.txt");        
+//        ap.leerArchivo();
+        
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
