@@ -116,8 +116,11 @@ public class seleccion {
     }
 
     @Override
+//    public String toString() {
+//        return "seleccion{" + "nombre=" + nombre + ", jugados=" + jugados + ", ganados=" + ganados + ", empatados=" + empatados + ", perdidos=" + perdidos + ", favor=" + favor + ", contra=" + contra + ", diferencia=" + diferencia + ", j=" + j + '}';
+//    }
     public String toString() {
-        return "seleccion{" + "nombre=" + nombre + ", jugados=" + jugados + ", ganados=" + ganados + ", empatados=" + empatados + ", perdidos=" + perdidos + ", favor=" + favor + ", contra=" + contra + ", diferencia=" + diferencia + ", j=" + j + '}';
+        return nombre ;
     }
     public int puntos(seleccion s){
         int punto = s.ganados*3 + s.empatados;

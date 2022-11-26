@@ -23,9 +23,9 @@ public class Principio extends javax.swing.JFrame {
      */
     public Principio() {
         
-        a.listausuario.add(new Usuario ("fer",342,"sdfg"));
-        a.listausuario.add(new Usuario ("nuila",34536,"werty"));
-        a.listausuario.add(new Usuario ("admin",12345,"poy"));
+        a.listausuario.add(new Usuario ("fer",342,"fer"));
+        a.listausuario.add(new Usuario ("nuila",34536,"nuila"));
+        a.listausuario.add(new Usuario ("admin",12345,"admin"));
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -193,9 +193,9 @@ public class Principio extends javax.swing.JFrame {
             int cont = 0;
             ArrayList<Usuario> lista = a.listausuario;
             for (int i = 0; i < lista.size(); i++) {
-               // if (lista.get(i) instanceof Usuario vario) {                 
-                    if (lista.get(i).getID() == id) {
-                        cont++;
+                // if (lista.get(i) instanceof Usuario vario) {                 
+                if (lista.get(i).getID() == id) {
+                    cont++;
                     //}
                 }
             }
